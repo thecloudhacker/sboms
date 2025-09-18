@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/clu_32_anim.gif') }}">
+    <style>
+        @font-face {
+            font-family: 'Platinum';
+                src: url("{{ url_for('static',filename='fonts/PlatinumSign.ttf') }}")  format('truetype')
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms.css') }}" media="screen" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms_print.css') }}" media="print" />
+    <title>SBOMS | Screaming at NPM Vulnerabilities</title>
+</head>
+<body>
+    <div class="menuBox">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/reports">Reports</a></li>
+            <li><a href="/settings"><div class="selected">Settings</div></a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ol>
+    </div>
+    <div class="contentBox">
+        <h1>SBOMS</h1>
+        <h2>Settings</h2>
+        <form name="settings" action="/settings" method="post">
+            <p>
+                <input type="submit" value="&#128190; Save Settings" class="button" />
+            </p>
+            <h3>SBOMS Settings</h3>
+            <table class="settingsTable">
+                <tr>
+                    <td>
+                        <p>
+                            <strong>SBOM Folder and Location</strong><br/>
+                            <input type="sbomfolder" value="{{ sbomfolder }}" name="sbomfolder" size="40"/>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <h3>AWS Settings</h3>
+            {{ updatemsg }}
+            <table class="settingsTable">
+                <tr>
+                    <td>
+                        <p>
+                            <strong>AWS Account ID</strong><br/>
+                            <input type="text" value="{{ accountID }}" name="accountID" />
+                        </p>
+                        <p>
+                            <strong>AWS Region</strong><br/>
+                            <input type="text" value="{{ region }}" name="region" />
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <strong>AWS Key</strong><br/>
+                            <input type="text" value="{{ userkey }}" name="userkey" />
+                        </p>
+                        <p>
+                            <strong>AWS Secret</strong><br/>
+                            <input type="password" value="{{ usersecret }}" name="usersecret" />
+                        </p>
+                        
+                    </td>
+                </tr>
+            </table>
+            
+            <br/><br/><br/><br/>
+        </form>
+        <p>
+            
+            {% autoescape false %}
+            {{ mainInfo }}
+            {% endautoescape %}
+        </p>
+        <br/><br/>
+    </div>
+    <div class="footer">
+        &copy; 2025 TheCloudHacker || SBOMS || Licensed under GNU GPL v2
+    </div>
+</body>
+</html>

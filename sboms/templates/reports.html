@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/clu_32_anim.gif') }}">
+    <style>
+        @font-face {
+            font-family: 'Platinum';
+                src: url("{{ url_for('static',filename='fonts/PlatinumSign.ttf') }}")  format('truetype')
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms.css') }}" media="screen" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms_print.css') }}" media="print" />
+    <title>SBOMS | Screaming at NPM Vulnerabilities</title>
+</head>
+<body>
+    <div class="menuBox">
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/reports"><div class="selected">Reports</div></a></li>
+            <li><a href="/settings">Settings</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ol>
+    </div>
+    <div class="contentBox">
+        <h1>SBOMS</h1>
+        <h2>Reports</h2>
+        <p>
+            <strong>Select a report to view:</strong>
+        </p>
+        <p>
+            <a href="/reports/vulnerabilities" class="button">List All Current Vulnerabilities</a><br/>
+            <a href="/reports/findings" class="button">List All Current Findings</a><br/>
+        </p>
+        <p>
+            
+            {% autoescape false %}
+            {{ mainInfo }}
+            {% endautoescape %}
+        </p>
+    </div>
+    <div class="footer">
+        &copy; 2025 TheCloudHacker || SBOMS || Licensed under GNU GPL v2
+    </div>
+</body>
+</html>

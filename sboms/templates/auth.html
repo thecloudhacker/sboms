@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='img/clu_32_anim.gif') }}">
+    <style>
+        @font-face {
+            font-family: 'Platinum';
+                src: url("{{ url_for('static',filename='fonts/PlatinumSign.ttf') }}")  format('truetype')
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms.css') }}" media="screen" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/sboms_print.css') }}" media="print" />
+    <title>SBOMS | Screaming at NPM Vulnerabilities</title>
+</head>
+<body>
+    <div class="contentBox">
+        <h1>SBOMS</h1>
+        <h2>Authentication</h2>
+        <form name="authenticate" action="/login" method="post">
+                <table>
+                    <tr>
+                        <td rowspan="3"><img src="{{ url_for('static', filename=imgBox) }}" alt="Bit" title="Bit" class="userimg" /></td>
+                        <td>Username: </td>
+                        <td><input type="text" name="username" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password: </td>
+                        <td><input type="password" name="password" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="submit" value="Log In" class="button" /></td>
+                    </tr>
+                </table>
+                <p>
+                    {{ failmessage }}
+                </p>
+            </form>
+    </div>
+    <div class="footer">
+        &copy; 2025 TheCloudHacker || SBOMS || Licensed under GNU GPL v2
+    </div>
+</body>
+</html>

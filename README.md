@@ -3,6 +3,8 @@
 Software Bill of Materials Searcher
 A *very* dirty scanner for your SBOM directory. Scan for the latest NPM malware pacakges and get an indication of issues in your software chain.
 
+![SBOMS Main Screen](./manual/mainpage.png "Main Screen")
+
 
 # Running
 
@@ -40,6 +42,23 @@ The primary web interface when running is available on port 8080:
 
 http://localhost:8080
 
-**Auth:**
+## Auth:
 
 root , haxxor
+
+![Auth Screen](./manual/authpng.png "Auth Screen")
+
+## Settings:
+
+Set your SBOM folder location in here that will be used for scanning. (AWS Settings are for planned expansion for grabbing data / pushing alerts and unused at present)
+
+![Settings Screen](./manual/settings.png "Settings Screen")
+
+## Reports
+
+View all vulnerabilities or findings in the reports section.
+
+![Reports](./manual/reports.png "Reports Screen")
+
+
+![All Vulnerabilities List](./manual/report_vulns.png "All Known Vulnerabilities")

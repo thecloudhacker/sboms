@@ -4,7 +4,7 @@ import os
 import datetime
 from datetime import datetime as dt
 
-connection = sqlite3.connect('clu.db')
+connection = sqlite3.connect('sboms.db')
 cursor = connection.cursor()
 
 # Get the Date Time

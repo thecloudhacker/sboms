@@ -23,7 +23,7 @@ except:
     SBOM_FOLDER=""
 
 
-connection = sqlite3.connect('clu.db')
+connection = sqlite3.connect('sboms.db')
 cursor = connection.cursor()
 
 # Get the Date Time
@@ -44,10 +44,14 @@ def grep(regex, path, file):
     except UnicodeDecodeError:
         pass
 
+intcounter = 1
 # Grab vulnerability list from the DB
 vulnerabilityList = "SELECT * FROM vulnerabilities"
 cursor.execute(vulnerabilityList)
 records = cursor.fetchall()
+vulnquantity = len(records)
+print("SEARCHING THROUGH " + str(vulnquantity) + " RECORDS")
+
 for row in records:
     # For each vulnerability run a scan
     findingList = ""
@@ -58,7 +62,7 @@ for row in records:
 
     regex = re.compile(r'^.' + re.escape(packageToFind))
     folder = SBOM_FOLDER 
-    print("LOOKING FOR: " + packageToFind)
+    print("(" + str(intcounter) + "/" + str(vulnquantity) + ") LOOKING FOR: " + packageToFind)
     for path, _, files in os.walk(folder):
         for file in files:
             filepath = os.path.join(path, file)
@@ -80,6 +84,6 @@ for row in records:
             # We get an UnicodeDecodeError when reading binary files
             except UnicodeDecodeError:
                 pass    
-
+    intcounter += 1
 # closing the database connection
 connection.close()

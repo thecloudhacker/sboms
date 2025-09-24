@@ -38,6 +38,31 @@ This will run the SBOM check - you should launch this from your CRON job every 6
 
 
 # Web Interface
+
+## Start the webserver
+The main software interface runs from code in the sboms folder.
+
+```pip install -r requirements.txt```
+
+If no python virtual environment exists crete the virtual environment:
+
+```
+cd sboms
+python3 -m venv .venv
+```
+
+Before running the app, activate the environment with: ```. .venv/bin/activate```
+
+Run the application from the sboms directory:
+
+```
+cd sboms
+python3 app.py
+```
+This should provide confirmation the system is running on all addresses.
+
+## Launch the browser interface
+
 The primary web interface when running is available on port 8080:
 
 http://localhost:8080
